@@ -7,6 +7,7 @@ from analyze.excel import analyze_group, analyze_student
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
 drive = GoogleDrive(gauth)
+file_counter = 0
 
 def extract_info_from_path(dir):
     try:
@@ -16,20 +17,31 @@ def extract_info_from_path(dir):
     except:
         print("Error: Wrong path format, it must be \"DATOS/year-semester...\".")
         return None, None
+    
 
+def search_for_sentence(file_list):
+    global file_counter
+    for file in file_list:
+        if file['mimeType'] == 'application/pdf' and file['title'] == 'enunciado.pdf':
+            file_path = f"enunciados/enunciado{file_counter}.pdf"
+            file.GetContentFile(file_path)
+            file_counter += 1
+            return file_path
+    return None
+            
 
 # Get the contents of a folder and subfolders
-def process_files_in_folder(file_list, year, semester, course_code, group_number):
+def process_files_in_folder(file_list, year, semester, course_code, group_number, sentence=None):
+    if sentence is None:
+        sentence = search_for_sentence(file_list)
+
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder':
             if not re.search(r'(proyecto)', file['title'], re.IGNORECASE):  # Skip folders with consent forms or projects
-                print(f"Carpeta: {file['title']} (ID: {file['id']})")
                 # Recursive call to process the subfolder
                 query = f"'{file['id']}' in parents and trashed=false"
                 sub_file_list = drive.ListFile({'q': query}).GetList()
-                process_files_in_folder(sub_file_list)
-        else:
-            print(f"  Archivo: {file['title']} (ID: {file['id']})")
+                process_files_in_folder(sub_file_list, year, semester, course_code, group_number, sentence)
 
 
 def get_groups(path):
@@ -99,8 +111,6 @@ def get_exercises(path):
                 print(f"Error: Wrong group number format in subfolder.")
                 return
             
-            print(f"Curso: {course_code}, Grupo: {group_number}, Year: {year}, Semester: {semester}")
-
             query = f"'{file['id']}' in parents and trashed=false"
             sub_file_list = drive.ListFile({'q': query}).GetList()
-            # process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
+            process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
