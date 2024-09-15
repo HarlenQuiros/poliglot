@@ -29,4 +29,4 @@ DELETE FROM Student
 GO
 DBCC CHECKIDENT ('Student', RESEED, 0);
 
-SELECT * FROM Student;
+SELECT * FROM Student ORDER BY student_name;
