@@ -8,11 +8,21 @@ gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
 drive = GoogleDrive(gauth)
 
+def extract_info_from_path(dir):
+    try:
+        year = dir[1][:4]
+        semester = dir[1][5]
+        return int(year), int(semester)
+    except:
+        print("Error: Wrong path format, it must be \"DATOS/year-semester...\".")
+        return None, None
+
+
 # Get the contents of a folder and subfolders
-def process_files_in_folder(file_list):
+def process_files_in_folder(file_list, year, semester, course_code, group_number):
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder':
-            if not re.search(r'(consentimientos|proyecto)', file['title'], re.IGNORECASE):  # Skip folders with consent forms or projects
+            if not re.search(r'(proyecto)', file['title'], re.IGNORECASE):  # Skip folders with consent forms or projects
                 print(f"Carpeta: {file['title']} (ID: {file['id']})")
                 # Recursive call to process the subfolder
                 query = f"'{file['id']}' in parents and trashed=false"
@@ -57,6 +67,9 @@ def get_students(file_list):
 def get_exercises(path):
     dir = path.split('/')
     parent_id = 'root'
+    year, semester = extract_info_from_path(dir)
+    if year is None:
+        return
     
     for name in dir:
         query = f"'{parent_id}' in parents and title = '{name}' and trashed=false"
@@ -74,6 +87,20 @@ def get_exercises(path):
     file_list = drive.ListFile({'q': query}).GetList()
     
     # get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
-    
-    print(f"Contenido de la carpeta '{dir[-1]}':")
-    process_files_in_folder(file_list)
+
+    # process the subfolders in the final directory 
+    for file in file_list:
+        if file['mimeType'] == 'application/vnd.google-apps.folder' and not re.search(r'(consentimientos)', file['title'], re.IGNORECASE):
+            course_code = file['title'][:7]
+            
+            try:
+                group_number = int(file['title'][-2:])
+            except:
+                print(f"Error: Wrong group number format in subfolder.")
+                return
+            
+            print(f"Curso: {course_code}, Grupo: {group_number}, Year: {year}, Semester: {semester}")
+
+            query = f"'{file['id']}' in parents and trashed=false"
+            sub_file_list = drive.ListFile({'q': query}).GetList()
+            # process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
