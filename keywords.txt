@@ -1,0 +1,23 @@
+-Abstracción
+-Algoritmia 
+-Bucles
+-Clases
+-Colas
+-Comentarios
+-Condicionales
+-Depuración
+-Diccionario
+-Encapsulamiento
+-Estructuras de datos
+-Excepciones
+-Funciones
+-Herencia
+-Interfaces
+-Listas
+-Modularidad
+-Objetos
+-Polimorfismo
+-Recursividad
+-Strings
+-Tipado
+-Tuplas
