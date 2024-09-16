@@ -30,3 +30,7 @@ GO
 DBCC CHECKIDENT ('Student', RESEED, 0);
 
 SELECT * FROM Student ORDER BY student_name;
+
+DELETE FROM Exercise
+GO
+DBCC CHECKIDENT ('Exercise', RESEED, 0);

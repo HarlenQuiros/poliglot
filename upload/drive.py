@@ -7,7 +7,6 @@ from analyze.excel import analyze_group, analyze_student
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
 drive = GoogleDrive(gauth)
-file_counter = 0
 
 def extract_info_from_path(dir):
     try:
@@ -19,13 +18,13 @@ def extract_info_from_path(dir):
         return None, None
     
 
-def search_for_sentence(file_list):
+def search_for_sentence(file_list, year, semester, course_code, group_number):
     global file_counter
     for file in file_list:
         if file['mimeType'] == 'application/pdf' and file['title'] == 'enunciado.pdf':
-            file_path = f"enunciados/enunciado{file_counter}.pdf"
-            file.GetContentFile(file_path)
-            file_counter += 1
+            with tempfile.TemporaryDirectory() as tmp_dir:
+                file_path = f"{tmp_dir}/enunciado.pdf"
+                file.GetContentFile(file_path)
             return file_path
     return None
             
@@ -33,7 +32,7 @@ def search_for_sentence(file_list):
 # Get the contents of a folder and subfolders
 def process_files_in_folder(file_list, year, semester, course_code, group_number, sentence=None):
     if sentence is None:
-        sentence = search_for_sentence(file_list)
+        sentence = search_for_sentence(file_list, year, semester, course_code, group_number)
 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder':
