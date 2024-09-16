@@ -25,7 +25,7 @@ def set_groups(group):
         group['Docente'], 
         group['Sede']
     )
-    execute_query(query, params)
+    execute_query_without_return(query, params)
 
 
 def set_student(group):
@@ -35,4 +35,4 @@ def set_student(group):
         group['Nombre'],
         1, 
         group['Género'],)
-    execute_query(query, params)
+    execute_query_without_return(query, params)
