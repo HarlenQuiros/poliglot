@@ -97,8 +97,8 @@ def get_exercises(path):
     query = f"'{parent_id}' in parents and trashed=false"
     file_list = drive.ListFile({'q': query}).GetList()
     
-    # get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
-
+    get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
+"""
     # process the subfolders in the final directory 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder' and not re.search(r'(consentimientos)', file['title'], re.IGNORECASE):
@@ -112,4 +112,4 @@ def get_exercises(path):
             
             query = f"'{file['id']}' in parents and trashed=false"
             sub_file_list = drive.ListFile({'q': query}).GetList()
-            process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
+            process_files_in_folder(sub_file_list, year, semester, course_code, group_number)"""

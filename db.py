@@ -1,6 +1,15 @@
 import pyodbc
+from dotenv import load_dotenv
+import os
 
-conn_string = 'DRIVER={ODBC Driver 17 for SQL Server};SERVER=localhost;DATABASE=Poliglot;UID=sa;PWD=.,%I4(X09Lko;'
+load_dotenv()
+db_host = os.getenv('DB_HOST')
+db_port = os.getenv('DB_PORT')
+db_user = os.getenv('DB_USER')
+db_password = os.getenv('DB_PASSWORD')
+db_name = os.getenv('DB_NAME')
+conn_string = f'DRIVER={{MySQL ODBC 9.0 Unicode Driver}};SERVER={db_host};PORT={db_port};DATABASE={db_name};UID={db_user};PWD={db_password};'
+
 
 def execute_query_without_return(query, params):
     try:
@@ -8,14 +17,19 @@ def execute_query_without_return(query, params):
         cursor = conn.cursor()
         cursor.execute(query, params)
         conn.commit()
+    except pyodbc.Error as e:
+        print(f"Database error: {e}")
     except Exception as e:
-        print(f"Failure inserting data: {e}")
+        print(f"Unexpected error: {e}")
     finally:
-        cursor.close()
-        conn.close()
+        try:
+            cursor.close() 
+            conn.close()
+        except: pass
+
 
 def set_groups(group):
-    query = "EXEC SP_Insert_Group ?, ?, ?, ?, ?, ?, ?",
+    query = "CALL SP_Insert_Group(?, ?, ?, ?, ?, ?, ?)"
     params = (  
         group['Año'], 
         group['Semestre'], 
@@ -27,12 +41,13 @@ def set_groups(group):
     )
     execute_query_without_return(query, params)
 
-
 def set_student(group):
-    query = "EXEC SP_Insert_Student ?, ?, ?, ?",
+    query = "CALL SP_Insert_Student(?, ?, ?, ?, ?)"
     params = (
         group['Carné'], 
         group['Nombre'],
         1, 
-        group['Género'],)
+        group['Género'],
+        group['Correo electrónico']
+    )
     execute_query_without_return(query, params)

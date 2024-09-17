@@ -26,6 +26,5 @@ def main():
     if args.drive_exercises:
         drive_exercises(args.drive_exercises)
 
-
 if __name__ == '__main__':
     main()

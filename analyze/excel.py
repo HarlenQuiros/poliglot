@@ -17,11 +17,11 @@ def analyze_group(file):
 def analyze_student(file):
     df = pd.read_excel(file, skiprows=8)
     df.columns = df.columns.str.strip()
-    course_data = df[['Carné', 'Nombre']]
+    course_data = df[['Carné', 'Nombre', 'Correo electrónico']]
     course_data = course_data.dropna() # Remove empty rows
     
     for index, row in course_data.iterrows():
-        row['Género'] = predict_gender(row['Nombre'])
+        row['Género'] = 'male'
         set_student(row)
     
     print("Student inserted successfully.")

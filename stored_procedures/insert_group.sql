@@ -1,64 +1,53 @@
-USE [Poliglot]
-GO
-DROP PROCEDURE IF EXISTS SP_Insert_Group
-GO
-CREATE PROCEDURE SP_Insert_Group
-    @year SMALLINT,
-    @semester TINYINT,
-    @code CHAR(6),
-    @course VARCHAR(50),
-    @group TINYINT,
-    @professor VARCHAR(50),
-    @campus VARCHAR(50)
-AS
+USE poliglot;
+DROP PROCEDURE IF EXISTS SP_Insert_Group;
+DELIMITER //
+CREATE PROCEDURE SP_Insert_Group(
+    IN year SMALLINT,
+    IN semester TINYINT,
+    IN code CHAR(6),
+    IN course VARCHAR(50),
+    IN group_number TINYINT,
+    IN professor VARCHAR(50),
+    IN campus VARCHAR(50)
+)
 BEGIN
-    SET NOCOUNT ON;
+    DECLARE v_professor_id INT DEFAULT NULL;
+    DECLARE v_campus_id TINYINT DEFAULT NULL;
+    DECLARE v_error BOOLEAN DEFAULT FALSE;
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET v_error = TRUE;
     
-    DECLARE @professor_id INT;
-    DECLARE @campus_id TINYINT;
-    DECLARE @ErrorMessage NVARCHAR(4000);
-    DECLARE @ErrorSeverity INT;
-    DECLARE @ErrorState INT;
-
-    BEGIN TRY
-        BEGIN TRANSACTION;
-
-        -- profesor exist?
-        SELECT @professor_id = professor_id FROM Professor WHERE professor_name = @professor;
-        IF @professor_id IS NULL
-        BEGIN
-            INSERT INTO Professor (professor_name) VALUES (@professor);
-            SET @professor_id = SCOPE_IDENTITY(); 
-        END
-
-        -- campus exist?
-        SELECT @campus_id = campus_id FROM Campus WHERE campus_name = @campus;
-        IF @campus_id IS NULL
-        BEGIN
-            INSERT INTO Campus (campus_name) VALUES (@campus);
-            SET @campus_id = SCOPE_IDENTITY(); 
-        END
-
-        -- course exist?
-        IF NOT EXISTS (SELECT 1 FROM Course WHERE course_code = @code)
-        BEGIN
-            INSERT INTO Course (course_code, course_name) VALUES (@code, @course);
-        END
-
-        INSERT INTO [Group] ([year], semester, course_code, professor_id, group_number, campus_id)
-        VALUES (@year, @semester, @code, @professor_id, @group, @campus_id);
-
-        COMMIT TRANSACTION;
-    END TRY
-    BEGIN CATCH
-        IF @@TRANCOUNT > 0
-            ROLLBACK TRANSACTION;
-
-        SELECT 
-            @ErrorMessage = ERROR_MESSAGE(),
-            @ErrorSeverity = ERROR_SEVERITY(),
-            @ErrorState = ERROR_STATE();
-
-        RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
-    END CATCH;
-END
+    START TRANSACTION;
+    
+    SELECT professor_id INTO v_professor_id 
+    FROM Professor 
+    WHERE professor_name = professor 
+    LIMIT 1;
+    IF v_professor_id IS NULL THEN
+        INSERT INTO Professor (professor_name) VALUES (professor);
+        SET v_professor_id = LAST_INSERT_ID(); 
+    END IF;
+    
+    SELECT campus_id INTO v_campus_id 
+    FROM Campus 
+    WHERE campus_name = campus 
+    LIMIT 1;
+    IF v_campus_id IS NULL THEN
+        INSERT INTO Campus (campus_name) VALUES (campus);
+        SET v_campus_id = LAST_INSERT_ID(); 
+    END IF;
+    
+    IF NOT EXISTS (SELECT 1 FROM Course WHERE course_code = code) THEN
+        INSERT INTO Course (course_code, course_name) VALUES (code, course);
+    END IF;
+    
+    INSERT INTO `Group` (year, semester, course_code, professor_id, group_number, campus_id)
+    VALUES (year, semester, code, v_professor_id, group_number, v_campus_id);
+    
+    IF v_error THEN
+        ROLLBACK;
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Error en SP_Insert_Group';
+    ELSE
+        COMMIT;
+    END IF;
+END //
+DELIMITER ;

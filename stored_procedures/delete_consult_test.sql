@@ -1,36 +1,36 @@
+SET SQL_SAFE_UPDATES = 0;
 -- Eliminar datos de una tabla
-DELETE FROM [Group];
-GO
+DELETE FROM `Group`;
 DELETE FROM Course;
-GO
 DELETE FROM Professor;
-GO
 DELETE FROM Campus;
-GO
--- Resetear el valor de IDENTITY manualmente
-DBCC CHECKIDENT ('Group', RESEED, 0);
-GO
-DBCC CHECKIDENT ('Course', RESEED, 0);
-GO
-DBCC CHECKIDENT ('Professor', RESEED, 0);
-GO
-DBCC CHECKIDENT ('Campus', RESEED, 0);
 
-SELECT g.year, g.semester, g.course_code, co.course_name, p.professor_name, g.group_number, ca.campus_name  FROM [Group] g
+-- Resetear el valor de AUTO_INCREMENT manualmente
+ALTER TABLE `Group` AUTO_INCREMENT = 1;
+ALTER TABLE Course AUTO_INCREMENT = 1;
+ALTER TABLE Professor AUTO_INCREMENT = 1;
+ALTER TABLE Campus AUTO_INCREMENT = 1;
+
+-- Consultar los datos
+SELECT g.year, g.semester, g.course_code, co.course_name, p.professor_name, g.group_number, ca.campus_name  
+FROM `Group` g
 JOIN Course co ON g.course_code = co.course_code
 JOIN Professor p ON g.professor_id = p.professor_id
 JOIN Campus ca ON g.campus_id = ca.campus_id;
 
-SELECT * FROM Professor;
+-- Consultar todos los datos de Professor
+SELECT * FROM Career;
 
-INSERT INTO Career (career_name) VALUES ('Ingeniería en computación');
+-- Insertar un nuevo registro en Career
+INSERT INTO Career (career_name) VALUES ('IngenierÃ­a en computaciÃ³n');
 
-DELETE FROM Student
-GO
-DBCC CHECKIDENT ('Student', RESEED, 0);
+-- Eliminar datos de Student
+DELETE FROM Student;
+ALTER TABLE Student AUTO_INCREMENT = 1;
 
-SELECT * FROM Student ORDER BY student_name;
+-- Consultar todos los datos de Student
+SELECT * FROM Student;
 
-DELETE FROM Exercise
-GO
-DBCC CHECKIDENT ('Exercise', RESEED, 0);
+-- Eliminar datos de Exercise
+DELETE FROM Exercise;
+ALTER TABLE Exercise AUTO_INCREMENT = 1;
