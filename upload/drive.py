@@ -3,7 +3,7 @@ import re
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 from analyze.excel import analyze_group, analyze_student
-from analyze.pdf import read_pdf
+from analyze.pdf import analyze_statement
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
@@ -34,11 +34,10 @@ def determine_case(file_list):
 def search_for_statement(file_list, year, semester, course_code, group_number, case):
     for file in file_list:
         if file['mimeType'] == 'application/pdf' and file['title'] == 'enunciado.pdf':
-            print(file['title'])
-            print(case)
             with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/enunciado.pdf"
                 file.GetContentFile(file_path)
+                analyze_statement(file_path, case)
                 return file_path
     return None
 
