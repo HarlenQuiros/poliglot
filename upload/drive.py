@@ -17,12 +17,25 @@ def extract_info_from_path(dir):
     except:
         print("Error: Wrong path format, it must be \"DATOS/year-semester...\".")
         return None, None
+
+
+# Case 1: Several files per student and per sentence
+# Case 2: Just one file per student and per sentence
+# Otherwise: None
+def determine_case(file_list):
+    for file in file_list:
+        if file['mimeType'] == 'application/vnd.google-apps.folder' and file['title'].startswith('20'):
+            return 1
+        if file['mimeType'] == 'text/x-python':
+            return 2
+    return None
     
 
-def search_for_sentence(file_list, year, semester, course_code, group_number):
+def search_for_statement(file_list, year, semester, course_code, group_number, case):
     for file in file_list:
         if file['mimeType'] == 'application/pdf' and file['title'] == 'enunciado.pdf':
             print(file['title'])
+            print(case)
             with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/enunciado.pdf"
                 file.GetContentFile(file_path)
@@ -30,41 +43,42 @@ def search_for_sentence(file_list, year, semester, course_code, group_number):
     return None
 
 
-def several_files_per_student(file_list, sentence):
+def several_files_per_student(file_list, statement):
     for file in file_list:
         if file['mimeType'] == 'text/x-python':
-            print(file['title'])
+            pass
             """with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/{file['title']}"
                 file.GetContentFile(file_path) """
                 # Do something with the file
-    print()
             
 
 # Get the contents of a folder and subfolders
-def process_files_in_folder(file_list, year, semester, course_code, group_number, sentence=None):
-    if sentence is None:
-        sentence = search_for_sentence(file_list, year, semester, course_code, group_number)
+def process_files_in_folder(file_list, year, semester, course_code, group_number):
+    """This should be with an if statement is null, 
+    but that case never happens due to the drive structure.
+    We don't do a recursive call when statement is not null"""
+    case = determine_case(file_list)
+    statement = search_for_statement(file_list, year, semester, course_code, group_number, case)
 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder':
-            if not re.search(r'(proyecto)', file['title'], re.IGNORECASE):  # Skip folders with consent forms or projects
-                # Recursive call to process the subfolder
+            if not re.search(r'(proyecto)', file['title'], re.IGNORECASE):  # Skip folders with projects
                 query = f"'{file['id']}' in parents and trashed=false"
                 sub_file_list = drive.ListFile({'q': query}).GetList()
                 # First case we have multiple files per student and per sentence
-                if sentence is not None and file['title'].startswith('20'):
-                    several_files_per_student(sub_file_list, sentence)
+                if statement is not None and case == 1:
+                    several_files_per_student(sub_file_list, statement)
                 else:
-                    process_files_in_folder(sub_file_list, year, semester, course_code, group_number, sentence)
+                    # Recursive call to process the subfolder
+                    process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
         # Second case we have just one file per student and per sentence
-        elif sentence is not None and file['mimeType'] == 'text/x-python':
-            print(file['title'])
+        elif statement is not None and case == 2 and file['mimeType'] == 'text/x-python':
+            pass
             """with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/{file['title']}"
                 file.GetContentFile(file_path) """
                 # Do something with the file
-    print()
 
 
 def get_groups(path):
