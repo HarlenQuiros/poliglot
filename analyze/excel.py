@@ -21,7 +21,7 @@ def analyze_student(file):
     course_data = course_data.dropna() # Remove empty rows
     
     for index, row in course_data.iterrows():
-        row['Género'] = 'male'
+        row['Género'] = predict_gender(row['Nombre'])
         set_student(row)
     
     print("Student inserted successfully.")

@@ -3,6 +3,7 @@ import re
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 from analyze.excel import analyze_group, analyze_student
+from analyze.pdf import read_pdf
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
@@ -19,14 +20,25 @@ def extract_info_from_path(dir):
     
 
 def search_for_sentence(file_list, year, semester, course_code, group_number):
-    global file_counter
     for file in file_list:
         if file['mimeType'] == 'application/pdf' and file['title'] == 'enunciado.pdf':
+            print(file['title'])
             with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/enunciado.pdf"
                 file.GetContentFile(file_path)
-            return file_path
+                return file_path
     return None
+
+
+def several_files_per_student(file_list, sentence):
+    for file in file_list:
+        if file['mimeType'] == 'text/x-python':
+            print(file['title'])
+            """with tempfile.TemporaryDirectory() as tmp_dir:
+                file_path = f"{tmp_dir}/{file['title']}"
+                file.GetContentFile(file_path) """
+                # Do something with the file
+    print()
             
 
 # Get the contents of a folder and subfolders
@@ -40,7 +52,19 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
                 # Recursive call to process the subfolder
                 query = f"'{file['id']}' in parents and trashed=false"
                 sub_file_list = drive.ListFile({'q': query}).GetList()
-                process_files_in_folder(sub_file_list, year, semester, course_code, group_number, sentence)
+                # First case we have multiple files per student and per sentence
+                if sentence is not None and file['title'].startswith('20'):
+                    several_files_per_student(sub_file_list, sentence)
+                else:
+                    process_files_in_folder(sub_file_list, year, semester, course_code, group_number, sentence)
+        # Second case we have just one file per student and per sentence
+        elif sentence is not None and file['mimeType'] == 'text/x-python':
+            print(file['title'])
+            """with tempfile.TemporaryDirectory() as tmp_dir:
+                file_path = f"{tmp_dir}/{file['title']}"
+                file.GetContentFile(file_path) """
+                # Do something with the file
+    print()
 
 
 def get_groups(path):
@@ -97,8 +121,8 @@ def get_exercises(path):
     query = f"'{parent_id}' in parents and trashed=false"
     file_list = drive.ListFile({'q': query}).GetList()
     
-    get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
-"""
+    # get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
+
     # process the subfolders in the final directory 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder' and not re.search(r'(consentimientos)', file['title'], re.IGNORECASE):
@@ -112,4 +136,4 @@ def get_exercises(path):
             
             query = f"'{file['id']}' in parents and trashed=false"
             sub_file_list = drive.ListFile({'q': query}).GetList()
-            process_files_in_folder(sub_file_list, year, semester, course_code, group_number)"""
+            process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
