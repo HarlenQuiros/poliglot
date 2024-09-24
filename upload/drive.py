@@ -4,6 +4,7 @@ from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 from analyze.excel import analyze_group, analyze_student
 from analyze.pdf import analyze_statement
+from db import set_exercise
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
@@ -34,18 +35,26 @@ def determine_case(file_list):
 def search_for_statement(file_list, year, semester, course_code, group_number, case):
     for file in file_list:
         if file['mimeType'] == 'application/pdf' and file['title'] == 'enunciado.pdf':
+            # First we get the parent folder title of the file to use it as the name of the exercise
+            parent_id = file['parents'][0]['id']
+            parent_folder = drive.CreateFile({'id': parent_id})
+            parent_folder.FetchMetadata()
+            root_dir_name = parent_folder['title']
+            print(f"Root dir name: {root_dir_name}")
             with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/enunciado.pdf"
                 file.GetContentFile(file_path)
-                analyze_statement(file_path, case)
-                return file_path
+                return analyze_statement(file_path, case, root_dir_name, year, semester, course_code, group_number)
     return None
 
 
-def several_files_per_student(file_list, statement):
+def several_files_per_student(file_list, statement, exercises, year, semester, course_code, group_number):
     for file in file_list:
         if file['mimeType'] == 'text/x-python':
-            pass
+            title = file['title'][:-3] # Delete .py extension
+            # Upload statement if not on db
+            if title not in exercises:
+                exercises[title] = set_exercise(title, statement, year, semester, course_code, group_number)
             """with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/{file['title']}"
                 file.GetContentFile(file_path) """
@@ -58,7 +67,10 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
     but that case never happens due to the drive structure.
     We don't do a recursive call when statement is not null"""
     case = determine_case(file_list)
-    statement = search_for_statement(file_list, year, semester, course_code, group_number, case)
+    if case is not None:
+        statement = search_for_statement(file_list, year, semester, course_code, group_number, case)
+        if statement is not None and case == 1:
+            exercises = dict()
 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder':
@@ -66,13 +78,13 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
                 query = f"'{file['id']}' in parents and trashed=false"
                 sub_file_list = drive.ListFile({'q': query}).GetList()
                 # First case we have multiple files per student and per sentence
-                if statement is not None and case == 1:
-                    several_files_per_student(sub_file_list, statement)
+                if case == 1 and statement is not None:
+                    several_files_per_student(sub_file_list, statement, exercises, year, semester, course_code, group_number)
                 else:
                     # Recursive call to process the subfolder
                     process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
         # Second case we have just one file per student and per sentence
-        elif statement is not None and case == 2 and file['mimeType'] == 'text/x-python':
+        elif case == 2 and statement is not None and file['mimeType'] == 'text/x-python':
             pass
             """with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/{file['title']}"
@@ -139,7 +151,7 @@ def get_exercises(path):
     # process the subfolders in the final directory 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder' and not re.search(r'(consentimientos)', file['title'], re.IGNORECASE):
-            course_code = file['title'][:7]
+            course_code = file['title'][:6]
             
             try:
                 group_number = int(file['title'][-2:])
