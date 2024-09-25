@@ -33,3 +33,16 @@ def analyze_aspects(file, exercise):
     df.columns = df.columns.str.strip()
     keywords = df['keywords'].dropna().tolist()
     set_aspects(int(exercise), json.dumps(keywords))
+
+
+def analyze_grade(file, case):
+    df = pd.read_excel(file)
+    df.columns = df.columns.str.strip()
+    if case == 1:
+        grade_date = df[['ejercicio', 'nota']]
+        grade_date.set_index('ejercicio', inplace=True)
+    else:
+        grade_date = df[['id', 'nota']]
+        grade_date.set_index('id', inplace=True)
+    grade_date = grade_date.dropna() # Remove empty rows
+    return grade_date['nota'].to_dict()

@@ -31,6 +31,13 @@ ALTER TABLE Student AUTO_INCREMENT = 1;
 -- Consultar todos los datos de Student
 SELECT * FROM Student;
 
+-- Eliminar datos de ExerciseAspect
+DELETE FROM ExerciseAspect;
+
+-- Eliminar datos de StudentSolution
+DELETE FROM StudentSolution;
+ALTER TABLE StudentSolution AUTO_INCREMENT = 1;
+
 -- Eliminar datos de Exercise
 DELETE FROM Exercise;
 ALTER TABLE Exercise AUTO_INCREMENT = 1;
@@ -39,8 +46,13 @@ ALTER TABLE Exercise AUTO_INCREMENT = 1;
 DELETE FROM Aspect;
 ALTER TABLE Aspect AUTO_INCREMENT = 1;
 
--- Eliminar datos de ExerciseAspect
-DELETE FROM ExerciseAspect;
-
 SELECT * FROM Exercise;
 SELECT * FROM Aspect;
+SELECT * FROM ExerciseAspect;
+
+SELECT e.name as ejercicio, a.aspect_name as aspecto
+FROM ExerciseAspect ea
+JOIN Exercise e ON e.exercise_id = ea.exercise_id
+JOIN Aspect a ON a.aspect_id = ea.aspect_id;
+
+SELECT * FROM StudentSolution;

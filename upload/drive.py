@@ -2,9 +2,9 @@ import tempfile
 import re
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
-from analyze.excel import analyze_group, analyze_student, analyze_aspects
+from analyze.excel import analyze_group, analyze_student, analyze_aspects, analyze_grade
 from analyze.pdf import analyze_statement
-from db import set_exercise
+from db import set_exercise, set_solution
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
@@ -32,6 +32,15 @@ def determine_case(file_list):
     return None
 
 
+def search_for_grade(file_list, case):
+    for file in file_list:
+        if file['mimeType'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' and file['title'] == 'desglose.xlsx':
+            with tempfile.TemporaryDirectory() as tmp_dir:
+                file_path = f"{tmp_dir}/desglose.xlsx"
+                file.GetContentFile(file_path)
+                return analyze_grade(file_path, case)
+
+
 def search_for_aspects(file_list, name, exercise):
     for file in file_list:
         if file['mimeType'] == 'text/csv' and file['title'] == name + '.csv':
@@ -56,17 +65,18 @@ def search_for_statement(file_list, year, semester, course_code, group_number, c
     return None
 
 
-def several_files_per_student(file_list, statement, exercises, year, semester, course_code, group_number):
+def several_files_per_student(file_list, statement, exercises, year, semester, course_code, group_number, student_id):
+    grades = search_for_grade(file_list, 1)
     for file in file_list:
         if file['mimeType'] == 'text/x-python':
             title = file['title'][:-3] # Delete .py extension
             # Upload statement if not on db
             if title not in exercises:
                 exercises[title] = set_exercise(title, statement, year, semester, course_code, group_number)
-            """with tempfile.TemporaryDirectory() as tmp_dir:
+            with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/{file['title']}"
-                file.GetContentFile(file_path) """
-                # Do something with the file
+                file.GetContentFile(file_path)
+                set_solution(int(student_id), int(exercises[title]), file_path, int(grades[title]))
             
 
 # Get the contents of a folder and subfolders
@@ -81,6 +91,7 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
             exercises = dict()
         elif statement is not None:  # Extract aspects
             search_for_aspects(file_list, 'keywords', statement)
+            grades = search_for_grade(file_list, case)
 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder':
@@ -89,17 +100,19 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
                 sub_file_list = drive.ListFile({'q': query}).GetList()
                 # First case we have multiple files per student and per sentence
                 if case == 1 and statement is not None:
-                    several_files_per_student(sub_file_list, statement, exercises, year, semester, course_code, group_number)
+                    several_files_per_student(sub_file_list, statement, exercises, year, semester, course_code, group_number, file['title'])
                 else:
                     # Recursive call to process the subfolder
                     process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
         # Second case we have just one file per student and per sentence
         elif case == 2 and statement is not None and file['mimeType'] == 'text/x-python':
-            pass
-            """with tempfile.TemporaryDirectory() as tmp_dir:
+            title = file['title'][:-3] # Delete .py extension
+            title = int(title)
+            with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/{file['title']}"
-                file.GetContentFile(file_path) """
-                # Do something with the file
+                file.GetContentFile(file_path)
+                set_solution(title, int(statement), file_path, int(grades[title]))
+                
     
     if case == 1 and statement is not None:
         for exercise in exercises:  # Extract aspects
