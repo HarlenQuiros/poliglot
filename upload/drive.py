@@ -2,7 +2,7 @@ import tempfile
 import re
 from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
-from analyze.excel import analyze_group, analyze_student
+from analyze.excel import analyze_group, analyze_student, analyze_aspects
 from analyze.pdf import analyze_statement
 from db import set_exercise
 
@@ -30,6 +30,15 @@ def determine_case(file_list):
         if file['mimeType'] == 'text/x-python':
             return 2
     return None
+
+
+def search_for_aspects(file_list, name, exercise):
+    for file in file_list:
+        if file['mimeType'] == 'text/csv' and file['title'] == name + '.csv':
+            with tempfile.TemporaryDirectory() as tmp_dir:
+                file_path = f"{tmp_dir}/aspectos.csv"
+                file.GetContentFile(file_path)
+                analyze_aspects(file_path, exercise)
     
 
 def search_for_statement(file_list, year, semester, course_code, group_number, case):
@@ -40,7 +49,6 @@ def search_for_statement(file_list, year, semester, course_code, group_number, c
             parent_folder = drive.CreateFile({'id': parent_id})
             parent_folder.FetchMetadata()
             root_dir_name = parent_folder['title']
-            print(f"Root dir name: {root_dir_name}")
             with tempfile.TemporaryDirectory() as tmp_dir:
                 file_path = f"{tmp_dir}/enunciado.pdf"
                 file.GetContentFile(file_path)
@@ -71,6 +79,8 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
         statement = search_for_statement(file_list, year, semester, course_code, group_number, case)
         if statement is not None and case == 1:
             exercises = dict()
+        elif statement is not None:  # Extract aspects
+            search_for_aspects(file_list, 'keywords', statement)
 
     for file in file_list:
         if file['mimeType'] == 'application/vnd.google-apps.folder':
@@ -90,6 +100,10 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
                 file_path = f"{tmp_dir}/{file['title']}"
                 file.GetContentFile(file_path) """
                 # Do something with the file
+    
+    if case == 1 and statement is not None:
+        for exercise in exercises:  # Extract aspects
+            search_for_aspects(file_list, exercise, exercises[exercise])
 
 
 def get_groups(path):

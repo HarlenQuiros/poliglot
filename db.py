@@ -1,6 +1,7 @@
 import pyodbc
 from dotenv import load_dotenv
 import os
+import json
 
 load_dotenv()
 db_host = os.getenv('DB_HOST')
@@ -86,5 +87,41 @@ def set_exercise(name, statement, year, semester, course_code, group_number):
         group_number
     )
     value = execute_query_with_return(query, params)[0][0]
-    print(f"Statement ID: {value}")
     return value
+
+"""
+def set_aspects(exercise, aspects_json):
+    print(exercise)
+    print(aspects_json)
+    query = "CALL SP_Insert_Aspect(?, CAST(? AS JSON))"
+    params = (
+        exercise,
+        aspects_json,
+    )
+    execute_query_without_return(query, params)
+"""
+
+def set_aspects(exercise, aspects_json):
+    print(f"Exercise ID: {exercise}")
+    print(f"Aspects JSON: {aspects_json}")
+    
+    query = "{CALL SP_Insert_Aspect(?, ?)}"
+    params = (exercise, aspects_json.encode('utf-8'))
+    
+    try:
+        conn = pyodbc.connect(conn_string)
+        cursor = conn.cursor()
+        cursor.execute(query, params)
+        conn.commit()
+        print("SP_Insert_Aspect executed successfully")
+    except pyodbc.Error as e:
+        print(f"Database error: {e}")
+        print(f"SQL State: {e.args[1]}")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+    finally:
+        try:
+            cursor.close()
+            conn.close()
+        except:
+            pass

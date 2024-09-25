@@ -34,3 +34,13 @@ SELECT * FROM Student;
 -- Eliminar datos de Exercise
 DELETE FROM Exercise;
 ALTER TABLE Exercise AUTO_INCREMENT = 1;
+
+-- Eliminar datos de Aspect
+DELETE FROM Aspect;
+ALTER TABLE Aspect AUTO_INCREMENT = 1;
+
+-- Eliminar datos de ExerciseAspect
+DELETE FROM ExerciseAspect;
+
+SELECT * FROM Exercise;
+SELECT * FROM Aspect;
