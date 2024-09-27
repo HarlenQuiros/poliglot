@@ -173,7 +173,7 @@ def get_exercises(path):
     query = f"'{parent_id}' in parents and trashed=false"
     file_list = drive.ListFile({'q': query}).GetList()
     
-    # get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
+    get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
 
     # process the subfolders in the final directory 
     for file in file_list:
