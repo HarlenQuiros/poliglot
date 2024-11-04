@@ -22,6 +22,25 @@ def translate_words(words):
             translated_words.add(translation.lower())  # Add translated word in lowercase
     return translated_words
 
+def translate_text(text, source_language='es', target_language='en'):
+    """
+    Translates a given text from the source language to the target language using deep-translator.
+
+    Parameters:
+    text (str): The text to be translated.
+    source_language (str): The language of the input text (default is 'auto' for automatic detection).
+    target_language (str): The language to translate the text into (default is 'en' for English).
+
+    Returns:
+    str: The translated text.
+    """
+    try:
+        translated_text = GoogleTranslator(source=source_language, target=target_language).translate(text)
+        return translated_text
+    except Exception as e:
+        print(f"Error during translation: {e}")
+        return None
+
 def lemmatize_words(words):
     ps = PorterStemmer()
     lemmatized_words = [ps.stem(word) for word in words]
@@ -133,7 +152,8 @@ def analyze_codes():
     
 
 # Initialize the Spanish NLP pipeline
-nlp = stanza.Pipeline('es')
+#stanza.download('en') 
+nlp = stanza.Pipeline('en', download_method='none')
 
 texto = """Escriba una función llamada repetidos (L) que reciba como argumento una lista L no vacía de
 elementos y retorne la lista de elementos que están repetidos en la lista. Si el elemento se encuentra
@@ -142,4 +162,7 @@ lanzar una excepción en caso de que no se cumpla alguna de las restricciones. N
 del tipo set, ni de ningún tipo de iteración (for o while). Utilice recursión de cola. No es necesario
 crear un programa principal para utilizar esta función."""
 
+texto = translate_text(texto, source_language='es', target_language='en')
+
 analyze_codes()
+#print("Texto: "+ translate_text(texto, source_language='es', target_language='en'))
