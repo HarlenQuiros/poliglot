@@ -13,6 +13,8 @@ from nltk.tokenize import word_tokenize
 # Translate 
 from deep_translator import GoogleTranslator
 
+# stanza.download('en')
+
 def translate_words(words):
     translator = GoogleTranslator(source='es', target='en')
     translated_words = set()  # Use a set for unique words
@@ -155,12 +157,12 @@ def analyze_codes():
 #stanza.download('en') 
 nlp = stanza.Pipeline('en', download_method='none')
 
-texto = """Escriba una función llamada repetidos (L) que reciba como argumento una lista L no vacía de
-elementos y retorne la lista de elementos que están repetidos en la lista. Si el elemento se encuentra
-repetido más de una vez en L, sólo debe aparecer una vez en la lista de resultado. La función debe
-lanzar una excepción en caso de que no se cumpla alguna de las restricciones. No se permite el uso
-del tipo set, ni de ningún tipo de iteración (for o while). Utilice recursión de cola. No es necesario
-crear un programa principal para utilizar esta función."""
+texto = """Desarrolle la función listas_ordenadas. Recibe una lista de n números y retorna una
+lista con sublistas de secuencias ascendentes y descendentes presentes en la
+lista recibida. Una secuencia está formada por una serie de números seguidos que presentan
+un determinado orden, ya sea de menor a mayor (ascendente) o de mayor a menor
+(descendente), y termina cuando el número siguiente en la lista de entrada cambia el orden
+que se está construyendo Ejemplos del funcionamiento:"""
 
 texto = translate_text(texto, source_language='es', target_language='en')
 

@@ -5,7 +5,7 @@ import sys
 import os
 
 def analyze_code(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         source_code = file.read()
 
     # Raw Metrics
@@ -21,6 +21,13 @@ def analyze_code(file_path):
 
     # Cyclomatic Complexity
     cc_result = complexity.cc_visit(source_code)
+    total_complexity = sum([block.complexity for block in cc_result])
+    mean_complexity = total_complexity / len(cc_result)
+    print(f"Average Complexity: {mean_complexity}")
+    print(f"Total Complexity: {total_complexity}")
+    print(f"Max Complexity: {max([block.complexity for block in cc_result])}")
+    print(f"Min Complexity: {min([block.complexity for block in cc_result])}")
+    print(f"Amount of Functions: {len(cc_result)}")
     print("Cyclomatic Complexity Metrics:")
     for block in cc_result:
         print(f"Function {block.name} - Complexity: {block.complexity}")
