@@ -50,3 +50,39 @@ El proceso general implica los siguientes pasos:
 - Requiere un analizador robusto y preciso para generar los AST, lo que puede ser complejo de implementar.
 - Puede ser computacionalmente costoso, especialmente para bases de código grandes, debido a la complejidad de recorrer y comparar los AST.
 - Es posible que no sea tan efectivo para detectar código duplicado que implique cambios estructurales significativos o reorganizaciones.
+
+## Locality-sensitive hashing
+Es una técnica utilizada para encontrar elementos similares en grandes conjuntos de datos de manera eficiente.
+Usualmente un hash busca minimizar las colisiones, pero con LSH se busca maximizar estas colisiones (que no sean completamente iguales, pero tengan una similaridad suficiente).
+
+Los datos similares se guardan en buckets que son más pequeños que universo posible de datos.
+
+### ¿Cómo funciona?
+1. El código se divide en líneas y por tokens.
+2. A cada línea se le aplica una función min-hash.
+3. En el LSH se inserta todos los min-hash para formar los buckets.
+
+### Ventajas
+- Es uno de los algoritmos más eficientes.
+
+### Desventajas
+- No funciona muy bien con pocos tokens. Lo mejor es comparar en bloques.
+- Puede depender de otro algoritmo para eliminar falsos negativos/positivos.
+
+### Librerías
+- Datasketch de python.
+
+## Anti-unification
+Este algoritmo trata de encontrar una función de generalización entre dos términos. Para ello utiliza un AST(Abstract Syntax Tree).
+
+### Cómo funciona?
+1. Extrae el AST.
+2. Reemplaza partes específicas como nombres de variables, constantes y operadores específicos por variables generalizadoras.
+3. Si dos patrones o más pueden ser representados por el mismo patrón generalizador entonces se considera que están duplicados.
+
+### Ventajas
+- Es insensible a cambios de nombres de variables.
+
+### Limitaciones
+- Generación de falsos positivos
+- Costo computacional: complejidad de generar el AST y comparar todos los fragmentos.
