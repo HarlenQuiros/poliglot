@@ -134,7 +134,7 @@ def analyze_codes():
     values_variables = []
     values_comments = []
     result_file = open('result.txt', 'w', encoding='utf-8')
-    file_path = r'.\codes'
+    file_path = r'.\codes\2'
     py_files = [f for f in os.listdir(file_path) if f.endswith('.py')]
     for file in py_files:
         with open(file_path + '\\' + file, 'r', encoding='utf-8') as file:
@@ -157,12 +157,9 @@ def analyze_codes():
 #stanza.download('en') 
 nlp = stanza.Pipeline('en', download_method='none')
 
-texto = """Desarrolle la función listas_ordenadas. Recibe una lista de n números y retorna una
-lista con sublistas de secuencias ascendentes y descendentes presentes en la
-lista recibida. Una secuencia está formada por una serie de números seguidos que presentan
-un determinado orden, ya sea de menor a mayor (ascendente) o de mayor a menor
-(descendente), y termina cuando el número siguiente en la lista de entrada cambia el orden
-que se está construyendo Ejemplos del funcionamiento:"""
+texto = """Escriba una función recursiva que comprima los caracteres duplicados consecutivos en una cadena. Si un 
+carácter aparece varias veces consecutivas, debe sustituirse por el carácter seguido del recuento de sus 
+apariciones. Si un carácter sólo aparece una vez, debe permanecer inalterado"""
 
 texto = translate_text(texto, source_language='es', target_language='en')
 
