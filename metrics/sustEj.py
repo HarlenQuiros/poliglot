@@ -134,7 +134,7 @@ def analyze_codes():
     values_variables = []
     values_comments = []
     result_file = open('result.txt', 'w', encoding='utf-8')
-    file_path = r'.\codes\2'
+    file_path = r'C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes' 
     py_files = [f for f in os.listdir(file_path) if f.endswith('.py')]
     for file in py_files:
         with open(file_path + '\\' + file, 'r', encoding='utf-8') as file:
@@ -157,9 +157,26 @@ def analyze_codes():
 #stanza.download('en') 
 nlp = stanza.Pipeline('en', download_method='none')
 
-texto = """Escriba una función recursiva que comprima los caracteres duplicados consecutivos en una cadena. Si un 
-carácter aparece varias veces consecutivas, debe sustituirse por el carácter seguido del recuento de sus 
-apariciones. Si un carácter sólo aparece una vez, debe permanecer inalterado"""
+texto = """Ejercicio #4
+El Shiritori es un juego japonés de palabras para dos jugadores. Las reglas son:
+1. El Jugador 1 dice una palabra.
+2. El Jugador 2 debe decir una nueva palabra que comience con la última letra de la palabra anterior.
+3. Los jugadores continúan alternando turnos, siguiendo esta regla.
+4. Ninguna palabra puede repetirse.
+5. Si un jugador rompe una regla, pierde el juego.
+Entrada:
+• Una lista con N palabras en orden de juego (comenzando por el Jugador 1).
+Salida:
+• Si el juego se jugó correctamente, imprimir “Juego justo”.
+• Si un jugador rompió una regla, imprimir “Jugador X perdió”, donde X es el número del jugador que cometió el error primero.
+Tarea: Escriba un programa que determine si un juego de Shiritori se jugó correctamente.
+Ejemplo 1
+Entrada: ["apple", "ear", "real", "letters", "style"]
+Salida: Juego justo
+Ejemplo 2
+Entrada: ["apple", "extra", "apple"]
+Salida: Jugador 1 perdió
+"""
 
 texto = translate_text(texto, source_language='es', target_language='en')
 
