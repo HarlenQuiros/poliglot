@@ -4,7 +4,7 @@ from pydrive2.auth import GoogleAuth
 from pydrive2.drive import GoogleDrive
 from analyze.excel import analyze_group, analyze_student, analyze_aspects, analyze_grade
 from analyze.pdf import analyze_statement
-from db import set_exercise, set_solution
+from utils.db import set_exercise, set_solution
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
