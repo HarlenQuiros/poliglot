@@ -1,9 +1,11 @@
 Variables:
-Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024256560.py - 0.0
-, Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024800158.py - 0.023255813953488372
+Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024192981.py - 0.06818181818181818
+, Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024202804.py - 0.06382978723404255
+, Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024253434.py - 0.10204081632653061
 
 
 Comentarios:
-Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024256560.py - 0.02962962962962963
-, Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024800158.py - 0.024390243902439025
+Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024192981.py - 0.037037037037037035
+, Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024202804.py - 0.0
+, Carnet: C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes\2024253434.py - 0.10526315789473684
 
