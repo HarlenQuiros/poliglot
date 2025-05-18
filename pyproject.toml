@@ -1,0 +1,26 @@
+[project]
+name = "poliglot"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Alonso",email = "106555422+AlonsoNav@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "requests",
+    "pandas",
+    "openpyxl",
+    "pyodbc",
+    "python-dotenv",
+    "pydrive2",
+    "pdfplumber",
+    "stanza",
+    "nltk",
+    "deep-translator",
+    "radon"
+]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
