@@ -8,7 +8,11 @@ Primeramente se realizó un análisis manual de los datos provistos por los prof
 Recientemente se realizó una actividad programada de manera presencial, donde los estudiantes tuvieron que realizar una serie de ejercicios previamente seleccionados con el fin de evaluar distintas capacidades asociadas con el pensamiento computacional y las métricas seleccionadas para la investigación. Con base en los resultados obtenidos en esta actividad se realizó un análisis de las métricas por iteraciones, seleccionando cierta cantidad de ejercicios para cada iteración (de distintas calidades según un análisis experto previo).
 
 ## Herramientas y Métricas Empleadas
-El análisis del código fuente se desarrolló mediante una combinación de herramientas propias y bibliotecas especializadas de análisis estático. Estas herramientas permitieron extraer un conjunto amplio de métricas que abarcan complejidad, nomenclatura, estilo, coherencia, reutilización estructural y alineación con el enunciado del problema. A continuación, se detalla cómo se implementó cada parte del análisis.
+El análisis del código fuente se desarrolló mediante una combinación de herramientas propias y bibliotecas especializadas de análisis estático. Estas herramientas permitieron extraer un conjunto amplio de métricas que abarcan complejidad, nomenclatura, estilo, coherencia, reutilización estructural y alineación con el enunciado del problema. 
+
+Muchas de estas herramientas se llegaron a implementar luego de varias iteraciones manuales y revisiones exhaustivas del funcionamiento. Algunas herramientas fueron descartadas pues no mostraban un impacto relevante en la calificación obtenida, como por ejemplo SonarQube, Pylint y otras.Estas iteraciones se dieron gracias a los datos recopilados durante el 2024. Estos datos fueron migrados desde un Google Drive a un deploy de una base de datos MySQL en Railway. 
+
+A continuación, se detalla cómo se implementó cada parte del análisis.
 
 ### 1. Radon (Complejidad, Mantenibilidad y Métricas Halstead)
 Se utilizó la biblioteca Radon para obtener métricas fundamentales del código:
