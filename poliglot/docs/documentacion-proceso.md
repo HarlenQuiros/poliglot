@@ -7,6 +7,44 @@ Primeramente se realizó un análisis manual de los datos provistos por los prof
 
 Recientemente se realizó una actividad programada de manera presencial, donde los estudiantes tuvieron que realizar una serie de ejercicios previamente seleccionados con el fin de evaluar distintas capacidades asociadas con el pensamiento computacional y las métricas seleccionadas para la investigación. Con base en los resultados obtenidos en esta actividad se realizó un análisis de las métricas por iteraciones, seleccionando cierta cantidad de ejercicios para cada iteración (de distintas calidades según un análisis experto previo).
 
+## Herramientas y Métricas Empleadas
+El análisis del código fuente se desarrolló mediante una combinación de herramientas propias y bibliotecas especializadas de análisis estático. Estas herramientas permitieron extraer un conjunto amplio de métricas que abarcan complejidad, nomenclatura, estilo, coherencia, reutilización estructural y alineación con el enunciado del problema. A continuación, se detalla cómo se implementó cada parte del análisis.
+
+### 1. Radon (Complejidad, Mantenibilidad y Métricas Halstead)
+Se utilizó la biblioteca Radon para obtener métricas fundamentales del código:
+
+- Líneas de código, Comentarios, número de funciones y complejidad ciclomática.
+
+- Complejidad ciclomática (CC): Para medir el número de caminos independientes posibles en el flujo de ejecución.
+
+- Estas métricas se agruparon bajo los campos: LoCode, LoComments, NoFunctions, ERL, IRL, IRC, CC, TPFM, IDC.
+
+
+### 2. Detector de Duplicación Estructural (AST y NodeVisitor)
+Se desarrolló un analizador personalizado basado en el módulo ast de Python para detectar duplicación estructural significativa. Este analizador genera secuencias estructurales ignorando los valores concretos y utilizando una ventana deslizante para encontrar repeticiones no triviales.
+
+- Patrones repetidos en estructura.
+
+- Porcentaje de duplicación respecto a líneas significativas (IDC).
+
+- Estos datos permitieron construir métricas como Valor general 2 y Nivel de PA (pensamiento algorítmico).
+
+### 3. Análisis de Estilo de Identificadores (INN)
+Se desarrolló un módulo que clasifica los identificadores (variables, funciones, clases) en diferentes estilos de nomenclatura: snake_case, camelCase, PascalCase, kebab-case. Se identificó el estilo dominante (INN) y su proporción de uso.
+
+- Esto se interpretó como una métrica indirecta de coherencia en la nomenclatura y  a buenas prácticas de codificación.
+
+### 4. Coherencia Semántica con el Enunciado (Jaccard Similarity)
+Se implementó un análisis de similitud entre el enunciado traducido (usando deep-translator) y:
+
+- Las variables definidas en el código.
+
+- Los comentarios encontrados mediante expresiones regulares.
+
+Estas palabras se tradujeron y lematizaron con NLTK y Stanza, y luego se calculó la similitud de Jaccard con las palabras clave extraídas del enunciado (ICLC, Comentarios).
+
+El objetivo fue evaluar si el estudiante modeló correctamente los conceptos del problema dentro del código.
+
 ## Limpieza de Datos
 En cuanto a la limpieza de datos, este proceso se llevó a cabo de manera manual principalmente, ya que se trataba de un conjunto de datos pequeño, aunque lo ideal sería buscar una manera de automatizar este proceso para un conjunto de datos más grande. Al tratarse de un conjunto de datos obtenidos de estudiantes de primer ingreso, ciertas soluciones se encontraban incompletas, con errores (sintácticos, lógicos, excepciones, etc.) o inclusive no se recibía la solución de cierto ejercicio. Por lo tanto, los estudiantes asistentes filtraron los datos con el fin de eliminar aquellas soluciones que no proveerían un insight importante para el análisis.
 
