@@ -1,0 +1,20 @@
+Un zoológico mantiene un registro de los animales que alberga y utiliza funciones específicas para verificar si 
+ciertos animales están en su base de datos. Actualmente, han implementado las siguientes funciones para 
+buscar si un león o un tigre está presente:
+def contains_lion(animals):
+ """Devuelve True si 'lion' está en la lista, False en caso contrario."""
+ for animal in animals:
+ if animal == "lion":
+ return True
+ return False
+def contains_tiger(animals):
+ """Devuelve True si 'tiger' está en la lista, False en caso contrario."""
+ for animal in animals:
+ if animal == "tiger":
+ return True
+ return False
+Sin embargo, recientemente el zoológico ha recibido un nuevo animal: un elefante. Ahora necesitan verificar 
+si este animal está en su base de datos, por lo que deben encontrar una manera de realizar esta 
+comprobación. Adicionalmente, el zoológico sigue creciendo y podría recibir más animales en el futuro. 
+Tarea: Debe proponer un código para resolver el problema. Asegúrese de que la solución funcione 
+correctamente con el nuevo animal.

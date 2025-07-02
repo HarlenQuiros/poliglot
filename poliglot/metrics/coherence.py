@@ -3,17 +3,20 @@ import ast
 import builtins
 import stanza
 import re
-import tokenize
-import io
 
 # Stemming
 from nltk.stem import PorterStemmer
-from nltk.tokenize import word_tokenize
 
 # Translate 
 from deep_translator import GoogleTranslator
 
-# stanza.download('en')
+# Lazy-load stanza pipeline only when needed
+_nlp = None
+def get_nlp():
+    global _nlp
+    if _nlp is None:
+        _nlp = stanza.Pipeline('en', download_method='none')
+    return _nlp
 
 def translate_words(words):
     translator = GoogleTranslator(source='es', target='en')
@@ -49,7 +52,6 @@ def lemmatize_words(words):
     return set(lemmatized_words)
 
 def analyze_code_case_frequency(code):
-    # print(code)
     tree = ast.parse(code)
     identifiers = set()
     builtin_names = dir(builtins)
@@ -70,11 +72,9 @@ def analyze_code_case_frequency(code):
 
 def get_nouns(text):
     # Process the text
+    nlp = get_nlp()
     doc = nlp(text)
-    
     unique_words = set()
-    
-    # Print only the nouns (POS: NOUN for common nouns, PROPN for proper nouns)
     for sentence in doc.sentences:
         for word in sentence.words:
             if word.pos == 'NOUN' or word.pos == 'ADJ' or word.pos == 'VERB':
@@ -82,12 +82,10 @@ def get_nouns(text):
     return lemmatize_words(translate_words(list(unique_words)))
 
 def jaccard_similarity(set1, set2):
-	# intersection of two sets
-	intersection = len(set1.intersection(set2))
-	# Unions of two sets
-	union = len(set1.union(set2))
-	
-	return intersection / union
+    intersection = len(set1.intersection(set2))
+    union = len(set1.union(set2))
+    
+    return intersection / union
 
 def get_comments(code):
     comments = []
@@ -98,24 +96,13 @@ def get_comments(code):
     # Regex para comentarios multilínea
     comentarios_multilinea = re.findall(r'("""(.*?)"""|\'\'\'(.*?)\'\'\')', code, re.DOTALL)
 
-    # Imprimir resultados
-    # print("Comentarios de una línea:")
     for comentario in comentarios_unilinea:
-        # print(type(comentario), len(comentario))
         comentario = comentario[1:]
         comentario = comentario.strip()
         comments.append(comentario)
-
-    # print("\nComentarios multilínea:")
+    
     for comentario in comentarios_multilinea:
-        # print(type(comentario), len(comentario), comentario)
         comments.append(comentario[1].strip())
-
-    # print("Comments: ", comments)
-    # tokens = tokenize.tokenize(io.BytesIO(code.encode('utf-8')).readline)
-    # for token in tokens:
-    #     if token.type == tokenize.COMMENT:
-    #         comments.append(token.string)
 
     comment_words = set()
     for comment in comments:
@@ -123,62 +110,48 @@ def get_comments(code):
         print("Words: ", words)
         words = lemmatize_words(translate_words(words))
         comment_words.update(words)
-    #     words = word_tokenize(comment)
-    #     for word in words:
-    #         comment_words.add(word.lower())
     return comment_words
 
-def analyze_codes():
-    enunciado = get_nouns(texto)
-    print("Enunciado: ", enunciado)
-    values_variables = []
-    values_comments = []
-    result_file = open('result.txt', 'w', encoding='utf-8')
-    file_path = r'C:\Users\hdani\OneDrive\Escritorio\Harlen\Asistencia pensamiento computacional\codes ejercicio 4\codes' 
-    py_files = [f for f in os.listdir(file_path) if f.endswith('.py')]
-    for file in py_files:
-        with open(file_path + '\\' + file, 'r', encoding='utf-8') as file:
+def analyze_sustej(file_path, enunciado):
+        with open(file_path, 'r', encoding='utf-8') as file:
             code = file.read()
-            variables = analyze_code_case_frequency(code)
-            comments = get_comments(code)
-            res_variables = jaccard_similarity(enunciado, variables)
-            print("Comments: ", comments)
-            res_comments = jaccard_similarity(enunciado, comments)
-            values_variables.append("Carnet: " + file.name + " - " + str(res_variables) + '\n')
-            values_comments.append("Carnet: " + file.name + " - " + str(res_comments) + '\n')
+        variables = analyze_code_case_frequency(code)
+        comments = get_comments(code)
+        res_variables = jaccard_similarity(enunciado, variables)
+        res_comments = jaccard_similarity(enunciado, comments)
+        output = []
+        output.append(f"Jaccard variables: {res_variables:.2f}")
+        output.append(f"Jaccard comments: {res_comments:.2f}")
+        return '\n'.join(output)
 
-    result_file.write("Variables:\n")
-    result_file.write(', '.join(values_variables) + '\n\n')
-    result_file.write("Comentarios:\n")
-    result_file.write(', '.join(values_comments) + '\n')
+def analyze_directory_sustej(directory_path, enunciado):
+    results = {}
+    for root, _, files in os.walk(directory_path):
+        for file in files:
+            if file.endswith('.py'):
+                file_path = os.path.join(root, file)
+                try:
+                    results[file_path] = analyze_sustej(file_path, enunciado)
+                except Exception as e:
+                    results[file_path] = f"Error: {e}"
+    return results
+
+def run_coherence_metrics(path, statement_file):
+    import os
+    if not os.path.isfile(statement_file):
+        return f"Statement file not found: {statement_file}"
+    with open(statement_file, 'r', encoding='utf-8') as f:
+        statement_text = f.read()
+    # Only translate and process statement once
+    statement_text_en = translate_text(statement_text, source_language='es', target_language='en')
+    enunciado = get_nouns(statement_text_en)
     
-
-# Initialize the Spanish NLP pipeline
-#stanza.download('en') 
-nlp = stanza.Pipeline('en', download_method='none')
-
-texto = """Ejercicio #4
-El Shiritori es un juego japonés de palabras para dos jugadores. Las reglas son:
-1. El Jugador 1 dice una palabra.
-2. El Jugador 2 debe decir una nueva palabra que comience con la última letra de la palabra anterior.
-3. Los jugadores continúan alternando turnos, siguiendo esta regla.
-4. Ninguna palabra puede repetirse.
-5. Si un jugador rompe una regla, pierde el juego.
-Entrada:
-• Una lista con N palabras en orden de juego (comenzando por el Jugador 1).
-Salida:
-• Si el juego se jugó correctamente, imprimir “Juego justo”.
-• Si un jugador rompió una regla, imprimir “Jugador X perdió”, donde X es el número del jugador que cometió el error primero.
-Tarea: Escriba un programa que determine si un juego de Shiritori se jugó correctamente.
-Ejemplo 1
-Entrada: ["apple", "ear", "real", "letters", "style"]
-Salida: Juego justo
-Ejemplo 2
-Entrada: ["apple", "extra", "apple"]
-Salida: Jugador 1 perdió
-"""
-
-texto = translate_text(texto, source_language='es', target_language='en')
-
-analyze_codes()
-#print("Texto: "+ translate_text(texto, source_language='es', target_language='en'))
+    if os.path.isfile(path):
+        try:
+            return {path: analyze_sustej(path, enunciado)}
+        except Exception as e:
+            return {path: f"Error: {e}"}
+    elif os.path.isdir(path):
+        return analyze_directory_sustej(path, enunciado)
+    else:
+        return {path: f"Invalid path: {path}"}

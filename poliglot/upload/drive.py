@@ -1,14 +1,16 @@
 import tempfile
 import re
-from pydrive2.auth import GoogleAuth
-from pydrive2.drive import GoogleDrive
-from analyze.excel import analyze_group, analyze_student, analyze_aspects, analyze_grade
-from analyze.pdf import analyze_statement
-from utils.db import set_exercise, set_solution
+from ..analyze.excel import analyze_group, analyze_student, analyze_aspects, analyze_grade
+from ..analyze.pdf import analyze_statement
+from ..utils.db import set_exercise, set_solution
 
-gauth = GoogleAuth()
-gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
-drive = GoogleDrive(gauth)
+# PyDrive2 objects will be initialized only when needed
+def get_drive():
+    from pydrive2.auth import GoogleAuth
+    from pydrive2.drive import GoogleDrive
+    gauth = GoogleAuth()
+    gauth.LocalWebserverAuth() # Creates local webserver and auto handles authentication.
+    return GoogleDrive(gauth)
 
 def extract_info_from_path(dir):
     try:
@@ -50,7 +52,7 @@ def search_for_aspects(file_list, name, exercise):
                 analyze_aspects(file_path, exercise)
     
 
-def search_for_statement(file_list, year, semester, course_code, group_number, case):
+def search_for_statement(file_list, year, semester, course_code, group_number, case, drive):
     for file in file_list:
         if file['mimeType'] == 'application/pdf' and file['title'] == 'enunciado.pdf':
             # First we get the parent folder title of the file to use it as the name of the exercise
@@ -80,13 +82,13 @@ def several_files_per_student(file_list, statement, exercises, year, semester, c
             
 
 # Get the contents of a folder and subfolders
-def process_files_in_folder(file_list, year, semester, course_code, group_number):
+def process_files_in_folder(file_list, year, semester, course_code, group_number, drive):
     """This should be with an if statement is null, 
     but that case never happens due to the drive structure.
     We don't do a recursive call when statement is not null"""
     case = determine_case(file_list)
     if case is not None:
-        statement = search_for_statement(file_list, year, semester, course_code, group_number, case)
+        statement = search_for_statement(file_list, year, semester, course_code, group_number, case, drive)
         if statement is not None and case == 1:
             exercises = dict()
         elif statement is not None:  # Extract aspects
@@ -103,7 +105,7 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
                     several_files_per_student(sub_file_list, statement, exercises, year, semester, course_code, group_number, file['title'])
                 else:
                     # Recursive call to process the subfolder
-                    process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
+                    process_files_in_folder(sub_file_list, year, semester, course_code, group_number, drive)
         # Second case we have just one file per student and per sentence
         elif case == 2 and statement is not None and file['mimeType'] == 'text/x-python':
             title = file['title'][:-3] # Delete .py extension
@@ -119,7 +121,7 @@ def process_files_in_folder(file_list, year, semester, course_code, group_number
             search_for_aspects(file_list, exercise, exercises[exercise])
 
 
-def get_groups(path):
+def get_groups(path, drive):
     dir = path.split('/') 
     file = None
     parent_id = 'root'
@@ -141,7 +143,7 @@ def get_groups(path):
             analyze_group(f'{tmp_dir}/profesores.xlsx')
 
 
-def get_students(file_list):
+def get_students(file_list, drive):
     with tempfile.TemporaryDirectory() as tmp_dir:
         for file in file_list: 
             # Process only Excel files
@@ -151,7 +153,7 @@ def get_students(file_list):
                 analyze_student(file_path)
 
 
-def get_exercises(path):
+def get_exercises(path, drive):
     dir = path.split('/')
     parent_id = 'root'
     year, semester = extract_info_from_path(dir)
@@ -173,7 +175,7 @@ def get_exercises(path):
     query = f"'{parent_id}' in parents and trashed=false"
     file_list = drive.ListFile({'q': query}).GetList()
     
-    get_students(file_list) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
+    get_students(file_list, drive) # Better skip if the students are already in BD, otherwise your genderize's requests will be wasted
 
     # process the subfolders in the final directory 
     for file in file_list:
@@ -188,4 +190,4 @@ def get_exercises(path):
             
             query = f"'{file['id']}' in parents and trashed=false"
             sub_file_list = drive.ListFile({'q': query}).GetList()
-            process_files_in_folder(sub_file_list, year, semester, course_code, group_number)
+            process_files_in_folder(sub_file_list, year, semester, course_code, group_number, drive)

@@ -151,20 +151,6 @@ def format_duplicate_report(duplicates: List[DuplicateInfo], duplication_percent
     report.append("=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===\n")
     report.append(f"Porcentaje de líneas duplicadas: {duplication_percentage:.2f}%\n")
     
-    for i, dup in enumerate(duplicates, 1):
-        report.append(f"\nDuplicado #{i}:")
-        report.append(f"Número de nodos: {dup.node_count}")
-        report.append("Patrón estructural:")
-        report.append("```")
-        report.append(" → ".join(dup.structure))
-        report.append("```")
-        
-        report.append("\nOcurrencias:")
-        for start, end in dup.occurrences:
-            report.append(f"- Líneas {start}-{end}")
-        
-        report.append("-" * 50)
-    
     return "\n".join(report)
 
 def analyze_file(file_path: str, min_length: int = 3) -> str:

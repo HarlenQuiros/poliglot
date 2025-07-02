@@ -1,6 +1,6 @@
 import pdfplumber
 import re
-from db import set_exercise
+from ..utils.db import set_exercise
 
 def extract_text_from_pdf(pdf_path):
     text = ""

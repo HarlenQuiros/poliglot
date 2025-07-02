@@ -1,7 +1,7 @@
 import pandas as pd
 import json
-from db import set_groups, set_student, set_aspects
-from genderize import predict_gender
+from ..utils.db import set_groups, set_student, set_aspects
+from ..utils.genderize import predict_gender
 
 def analyze_group(file):
     df = pd.read_excel(file, skiprows=6)

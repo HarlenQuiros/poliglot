@@ -1,0 +1,1595 @@
+=== FILE: codes/1/2016220461.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 6
+Logical Lines of Code (LLOC): 6
+Source Lines of Code (SLOC): 5
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2016220461.py
+L (líneas útiles): 6
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2020184824.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 2
+Logical Lines of Code (LLOC): 2
+Source Lines of Code (SLOC): 2
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 1.0
+Total Complexity: 1
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2020184824.py
+L (líneas útiles): 2
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2022000033.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 13
+Logical Lines of Code (LLOC): 8
+Source Lines of Code (SLOC): 8
+Comments: 2
+Multi: 0
+Blank: 3
+Average Complexity: 4.0
+Total Complexity: 4
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 25.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2022000033.py
+L (líneas útiles): 8
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2022146515.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 11
+Logical Lines of Code (LLOC): 8
+Source Lines of Code (SLOC): 7
+Comments: 2
+Multi: 0
+Blank: 1
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2022146515.py
+L (líneas útiles): 8
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.11
+
+=== FILE: codes/1/2022163260.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 6
+Logical Lines of Code (LLOC): 6
+Source Lines of Code (SLOC): 5
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2022163260.py
+L (líneas útiles): 6
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.08
+
+=== FILE: codes/1/2023066681.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 19
+Logical Lines of Code (LLOC): 17
+Source Lines of Code (SLOC): 17
+Comments: 0
+Multi: 0
+Blank: 2
+Average Complexity: 5.0
+Total Complexity: 5
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 4, 'camelCase': 4}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 29.41%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2023066681.py
+L (líneas útiles): 17
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2023112646.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 25
+Logical Lines of Code (LLOC): 23
+Source Lines of Code (SLOC): 23
+Comments: 0
+Multi: 0
+Blank: 2
+Average Complexity: 7.0
+Total Complexity: 7
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 5
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 5, 'camelCase': 5}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 39.13%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2023112646.py
+L (líneas útiles): 23
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2023147244.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 34
+Logical Lines of Code (LLOC): 21
+Source Lines of Code (SLOC): 21
+Comments: 9
+Multi: 0
+Blank: 4
+Average Complexity: 3.0
+Total Complexity: 12
+Amount of Functions: 4
+
+--- INN METRICS ---
+Total de identificadores: 8
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 8, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 66.67%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2023147244.py
+L (líneas útiles): 21
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.11
+Jaccard comments: 0.21
+
+=== FILE: codes/1/2023152721.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 7
+Logical Lines of Code (LLOC): 7
+Source Lines of Code (SLOC): 7
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2023152721.py
+L (líneas útiles): 7
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024063271.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 26
+Logical Lines of Code (LLOC): 18
+Source Lines of Code (SLOC): 18
+Comments: 1
+Multi: 0
+Blank: 7
+Average Complexity: 4.0
+Total Complexity: 8
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: snake_case
+Proporción del estilo dominante: 83.33%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 4, 'camelCase': 4, 'PascalCase': 1}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 33.33%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024063271.py
+L (líneas útiles): 18
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.08
+
+=== FILE: codes/1/2024066829.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 7
+Logical Lines of Code (LLOC): 5
+Source Lines of Code (SLOC): 5
+Comments: 1
+Multi: 0
+Blank: 1
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024066829.py
+L (líneas útiles): 5
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024070969.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 29
+Logical Lines of Code (LLOC): 21
+Source Lines of Code (SLOC): 20
+Comments: 1
+Multi: 0
+Blank: 7
+Average Complexity: 3.3333333333333335
+Total Complexity: 10
+Amount of Functions: 3
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 6, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 52.38%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024070969.py
+L (líneas útiles): 21
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.09
+Jaccard comments: 0.02
+
+=== FILE: codes/1/2024071983.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 20
+Logical Lines of Code (LLOC): 16
+Source Lines of Code (SLOC): 16
+Comments: 1
+Multi: 0
+Blank: 3
+Average Complexity: 3.0
+Total Complexity: 9
+Amount of Functions: 3
+
+--- INN METRICS ---
+Total de identificadores: 5
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 62.50%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024071983.py
+L (líneas útiles): 16
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.09
+Jaccard comments: 0.04
+
+=== FILE: codes/1/2024082949.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 14
+Logical Lines of Code (LLOC): 11
+Source Lines of Code (SLOC): 11
+Comments: 1
+Multi: 0
+Blank: 2
+Average Complexity: 3.0
+Total Complexity: 6
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 5
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 45.45%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024082949.py
+L (líneas útiles): 11
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.09
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024090884.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 37
+Logical Lines of Code (LLOC): 31
+Source Lines of Code (SLOC): 31
+Comments: 0
+Multi: 0
+Blank: 6
+Average Complexity: 2.6
+Total Complexity: 13
+Amount of Functions: 5
+
+--- INN METRICS ---
+Total de identificadores: 9
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 9, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 61.29%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024090884.py
+L (líneas útiles): 31
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.08
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024093410.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 6
+Logical Lines of Code (LLOC): 6
+Source Lines of Code (SLOC): 5
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 75.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 3}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024093410.py
+L (líneas útiles): 6
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.02
+
+=== FILE: codes/1/2024096731.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 24
+Logical Lines of Code (LLOC): 19
+Source Lines of Code (SLOC): 19
+Comments: 2
+Multi: 0
+Blank: 3
+Average Complexity: 2.0
+Total Complexity: 4
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: snake_case
+Proporción del estilo dominante: 83.33%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 5, 'camelCase': 5, 'PascalCase': 1}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 21.05%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024096731.py
+L (líneas útiles): 19
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024099007.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 8
+Logical Lines of Code (LLOC): 8
+Source Lines of Code (SLOC): 8
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 4.0
+Total Complexity: 4
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 4, 'camelCase': 4}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 25.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024099007.py
+L (líneas útiles): 8
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024109692.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 16
+Logical Lines of Code (LLOC): 13
+Source Lines of Code (SLOC): 13
+Comments: 0
+Multi: 0
+Blank: 3
+Average Complexity: 2.0
+Total Complexity: 4
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 6, 'kebab-case': 5, 'camelCase': 5}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 7.69%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024109692.py
+L (líneas útiles): 13
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.06
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024112230.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 47
+Logical Lines of Code (LLOC): 30
+Source Lines of Code (SLOC): 26
+Comments: 0
+Multi: 3
+Blank: 15
+Average Complexity: 3.0
+Total Complexity: 12
+Amount of Functions: 4
+
+--- INN METRICS ---
+Total de identificadores: 8
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 8, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 64.29%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024112230.py
+L (líneas útiles): 32
+E (líneas uso externo): 0
+M (líneas uso interno): 3
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0938
+TRL (Total reuse/L): 0.0938
+--- COHERENCE METRICS ---
+Jaccard variables: 0.09
+Jaccard comments: 0.08
+
+=== FILE: codes/1/2024114502.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 20
+Logical Lines of Code (LLOC): 11
+Source Lines of Code (SLOC): 11
+Comments: 1
+Multi: 0
+Blank: 8
+Average Complexity: 2.0
+Total Complexity: 4
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: camelCase
+Proporción del estilo dominante: 83.33%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 4, 'camelCase': 5, 'unknown': 1}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 18.18%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024114502.py
+L (líneas útiles): 11
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.06
+
+=== FILE: codes/1/2024132538.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 5
+Logical Lines of Code (LLOC): 5
+Source Lines of Code (SLOC): 4
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 2.0
+Total Complexity: 2
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 2
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 2, 'kebab-case': 1, 'camelCase': 1}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024132538.py
+L (líneas útiles): 5
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024136072.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 11
+Logical Lines of Code (LLOC): 10
+Source Lines of Code (SLOC): 9
+Comments: 0
+Multi: 0
+Blank: 1
+Average Complexity: 3.5
+Total Complexity: 7
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 5
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 44.44%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024136072.py
+L (líneas útiles): 10
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.08
+
+=== FILE: codes/1/2024138712.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 5
+Logical Lines of Code (LLOC): 5
+Source Lines of Code (SLOC): 5
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 75.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 20.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024138712.py
+L (líneas útiles): 5
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024140841.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 58
+Logical Lines of Code (LLOC): 26
+Source Lines of Code (SLOC): 26
+Comments: 19
+Multi: 0
+Blank: 13
+Average Complexity: 3.0
+Total Complexity: 12
+Amount of Functions: 4
+
+--- INN METRICS ---
+Total de identificadores: 8
+Estilo dominante: snake_case
+Proporción del estilo dominante: 87.50%
+Conteo de estilos: {'snake_case': 7, 'kebab-case': 3, 'camelCase': 4}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 65.38%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024140841.py
+L (líneas útiles): 26
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.08
+Jaccard comments: 0.16
+
+=== FILE: codes/1/2024145117.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 58
+Logical Lines of Code (LLOC): 50
+Source Lines of Code (SLOC): 50
+Comments: 3
+Multi: 0
+Blank: 5
+Average Complexity: 3.0
+Total Complexity: 12
+Amount of Functions: 4
+
+--- INN METRICS ---
+Total de identificadores: 11
+Estilo dominante: camelCase
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 9, 'kebab-case': 9, 'camelCase': 11}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 38.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024145117.py
+L (líneas útiles): 50
+E (líneas uso externo): 0
+M (líneas uso interno): 2
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.04
+TRL (Total reuse/L): 0.04
+--- COHERENCE METRICS ---
+Jaccard variables: 0.06
+Jaccard comments: 0.07
+
+=== FILE: codes/1/2024145153.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 5
+Logical Lines of Code (LLOC): 5
+Source Lines of Code (SLOC): 5
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024145153.py
+L (líneas útiles): 5
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024163735.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 23
+Logical Lines of Code (LLOC): 15
+Source Lines of Code (SLOC): 12
+Comments: 3
+Multi: 2
+Blank: 4
+Average Complexity: 3.0
+Total Complexity: 6
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 5
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 21.43%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024163735.py
+L (líneas útiles): 16
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.10
+
+=== FILE: codes/1/2024178193.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 16
+Logical Lines of Code (LLOC): 12
+Source Lines of Code (SLOC): 12
+Comments: 1
+Multi: 0
+Blank: 3
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 25.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024178193.py
+L (líneas útiles): 12
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024178653.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 17
+Logical Lines of Code (LLOC): 9
+Source Lines of Code (SLOC): 8
+Comments: 1
+Multi: 6
+Blank: 2
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: camelCase
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 2, 'kebab-case': 2, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 7.14%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024178653.py
+L (líneas útiles): 14
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.07
+
+=== FILE: codes/1/2024192981.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 19
+Logical Lines of Code (LLOC): 15
+Source Lines of Code (SLOC): 12
+Comments: 0
+Multi: 0
+Blank: 4
+Average Complexity: 3.0
+Total Complexity: 6
+Amount of Functions: 2
+
+--- INN METRICS ---
+Total de identificadores: 5
+Estilo dominante: snake_case
+Proporción del estilo dominante: 80.00%
+Conteo de estilos: {'camelCase': 3, 'snake_case': 4, 'kebab-case': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 50.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024192981.py
+L (líneas útiles): 15
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.06
+Jaccard comments: 0.10
+
+=== FILE: codes/1/2024201088.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 26
+Logical Lines of Code (LLOC): 26
+Source Lines of Code (SLOC): 26
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 10.0
+Total Complexity: 10
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 6, 'kebab-case': 5, 'camelCase': 5}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 34.62%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024201088.py
+L (líneas útiles): 26
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024202804.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 9
+Logical Lines of Code (LLOC): 8
+Source Lines of Code (SLOC): 7
+Comments: 0
+Multi: 0
+Blank: 1
+Average Complexity: 4.0
+Total Complexity: 4
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024202804.py
+L (líneas útiles): 8
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024252331.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 49
+Logical Lines of Code (LLOC): 34
+Source Lines of Code (SLOC): 34
+Comments: 7
+Multi: 0
+Blank: 14
+Average Complexity: 5.0
+Total Complexity: 5
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 7
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 7, 'kebab-case': 5, 'camelCase': 5}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 23.53%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024252331.py
+L (líneas útiles): 34
+E (líneas uso externo): 0
+M (líneas uso interno): 2
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0588
+TRL (Total reuse/L): 0.0588
+--- COHERENCE METRICS ---
+Jaccard variables: 0.06
+Jaccard comments: 0.06
+
+=== FILE: codes/1/2024253395.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 15
+Logical Lines of Code (LLOC): 12
+Source Lines of Code (SLOC): 12
+Comments: 1
+Multi: 0
+Blank: 2
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 7
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 7, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 33.33%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024253395.py
+L (líneas útiles): 12
+E (líneas uso externo): 0
+M (líneas uso interno): 3
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.25
+TRL (Total reuse/L): 0.25
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024253434.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 33
+Logical Lines of Code (LLOC): 21
+Source Lines of Code (SLOC): 20
+Comments: 0
+Multi: 7
+Blank: 6
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: snake_case
+Proporción del estilo dominante: 83.33%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 2, 'camelCase': 2, 'PascalCase': 1}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 40.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024253434.py
+L (líneas útiles): 27
+E (líneas uso externo): 0
+M (líneas uso interno): 3
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.1111
+TRL (Total reuse/L): 0.1111
+--- COHERENCE METRICS ---
+Jaccard variables: 0.06
+Jaccard comments: 0.11
+
+=== FILE: codes/1/2024256175.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 23
+Logical Lines of Code (LLOC): 18
+Source Lines of Code (SLOC): 15
+Comments: 2
+Multi: 0
+Blank: 3
+Average Complexity: 3.0
+Total Complexity: 9
+Amount of Functions: 3
+
+--- INN METRICS ---
+Total de identificadores: 5
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 5, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 66.67%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024256175.py
+L (líneas útiles): 18
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.09
+Jaccard comments: 0.07
+
+=== FILE: codes/1/2024256560.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 11
+Logical Lines of Code (LLOC): 6
+Source Lines of Code (SLOC): 5
+Comments: 6
+Multi: 0
+Blank: 2
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 20.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024256560.py
+L (líneas útiles): 6
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.07
+
+=== FILE: codes/1/2024256710.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 30
+Logical Lines of Code (LLOC): 26
+Source Lines of Code (SLOC): 26
+Comments: 0
+Multi: 0
+Blank: 4
+Average Complexity: 2.6666666666666665
+Total Complexity: 8
+Amount of Functions: 3
+
+--- INN METRICS ---
+Total de identificadores: 8
+Estilo dominante: snake_case
+Proporción del estilo dominante: 75.00%
+Conteo de estilos: {'snake_case': 6, 'kebab-case': 6, 'camelCase': 6, 'PascalCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 38.46%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024256710.py
+L (líneas útiles): 26
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024305867.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 7
+Logical Lines of Code (LLOC): 3
+Source Lines of Code (SLOC): 2
+Comments: 0
+Multi: 5
+Blank: 0
+Average Complexity: 1.0
+Total Complexity: 1
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 2
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 2, 'kebab-case': 1, 'camelCase': 1}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024305867.py
+L (líneas útiles): 7
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.04
+Jaccard comments: 0.11
+
+=== FILE: codes/1/2024800088.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 9
+Logical Lines of Code (LLOC): 7
+Source Lines of Code (SLOC): 7
+Comments: 0
+Multi: 0
+Blank: 2
+Average Complexity: 2.0
+Total Complexity: 2
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 14.29%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024800088.py
+L (líneas útiles): 7
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
+
+=== FILE: codes/1/2024800128.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 23
+Logical Lines of Code (LLOC): 8
+Source Lines of Code (SLOC): 7
+Comments: 0
+Multi: 8
+Blank: 8
+Average Complexity: 3.0
+Total Complexity: 3
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 4
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 4, 'kebab-case': 3, 'camelCase': 3}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 7.69%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024800128.py
+L (líneas útiles): 15
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.14
+
+=== FILE: codes/1/2024800158.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 12
+Logical Lines of Code (LLOC): 7
+Source Lines of Code (SLOC): 6
+Comments: 2
+Multi: 3
+Blank: 2
+Average Complexity: 2.0
+Total Complexity: 2
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: snake_case
+Proporción del estilo dominante: 66.67%
+Conteo de estilos: {'snake_case': 2, 'kebab-case': 1, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 11.11%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024800158.py
+L (líneas útiles): 9
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.12
+
+=== FILE: codes/1/2024800621.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 26
+Logical Lines of Code (LLOC): 23
+Source Lines of Code (SLOC): 20
+Comments: 0
+Multi: 0
+Blank: 4
+Average Complexity: 3.0
+Total Complexity: 12
+Amount of Functions: 4
+
+--- INN METRICS ---
+Total de identificadores: 6
+Estilo dominante: snake_case
+Proporción del estilo dominante: 83.33%
+Conteo de estilos: {'unknown': 1, 'snake_case': 5, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+=== REPORTE DE DUPLICACIÓN ESTRUCTURAL ===
+
+Porcentaje de líneas duplicadas: 40.00%
+
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024800621.py
+L (líneas útiles): 22
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.11
+Jaccard comments: 0.15
+
+=== FILE: codes/1/2024800990.py ===
+--- RADON METRICS ---
+Raw Metrics:
+Lines of Code (LOC): 4
+Logical Lines of Code (LLOC): 4
+Source Lines of Code (SLOC): 4
+Comments: 0
+Multi: 0
+Blank: 0
+Average Complexity: 2.0
+Total Complexity: 2
+Amount of Functions: 1
+
+--- INN METRICS ---
+Total de identificadores: 3
+Estilo dominante: snake_case
+Proporción del estilo dominante: 100.00%
+Conteo de estilos: {'snake_case': 3, 'kebab-case': 2, 'camelCase': 2}
+--- IDC METRICS ---
+No se encontraron duplicados estructurales significativos.
+Porcentaje de duplicación: 0%
+--- IRC METRICS ---
+--- IRC METRICS ---
+Archivo: 2024800990.py
+L (líneas útiles): 4
+E (líneas uso externo): 0
+M (líneas uso interno): 0
+ERL (External reuse/L): 0.0
+IRL (Internal reuse/L): 0.0
+TRL (Total reuse/L): 0.0
+--- COHERENCE METRICS ---
+Jaccard variables: 0.02
+Jaccard comments: 0.00
